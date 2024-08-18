@@ -7,6 +7,35 @@ class Program
     {
         Console.WriteLine("Hacker Rank");        
     }
+    public static int migratoryBirds(List<int> arr)
+    {
+        HashSet<int> set = new HashSet<int>();
+
+        int counter = 0;
+        int max_reps = 0;
+        int max_value = 0;
+
+        arr.Sort();
+        arr.ForEach(x => set.Add(x));
+
+        foreach (var x in set)
+        {
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if (x == arr[i])
+                {
+                    counter++;
+                    if (counter > max_reps)
+                    {
+                        max_reps = counter;
+                        max_value = x;
+                    }
+                }
+            }
+            counter = 0;
+        }
+        return max_value;
+    }
 
     public static void getTotalX(List<int> a, List<int> b)
     {
