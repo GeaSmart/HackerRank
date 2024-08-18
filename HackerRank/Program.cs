@@ -5,7 +5,52 @@ class Program
 
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hacker Rank");        
+        Console.WriteLine("Hacker Rank");
+        Console.WriteLine(dayOfProgrammer(2000));
+        Console.WriteLine(dayOfProgrammer(2017));
+    }
+    public static string dayOfProgrammer(int year)
+    {
+        int diasFeb = 28;
+
+        if (year >= 1700 && year <= 1917 && year % 4 == 0)        
+            diasFeb = 29;        
+        else if (year == 1918)
+            diasFeb = 15;
+        else if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+                diasFeb = 29;
+        
+        List<int> diasPorMes = new List<int>();
+        diasPorMes.Add(31);
+        diasPorMes.Add(diasFeb);//feb
+        diasPorMes.Add(31);
+        diasPorMes.Add(30);//apr
+        diasPorMes.Add(31);
+        diasPorMes.Add(30);//jun
+        diasPorMes.Add(31);
+        diasPorMes.Add(31);//aug
+        diasPorMes.Add(30);
+        diasPorMes.Add(31);//oct
+        diasPorMes.Add(30);
+        diasPorMes.Add(31);//dec
+
+        int numeroDia = 256;
+        int sumaDias = 0;
+        int contadorMesesCompletos = 0;
+        int diasAcumulados = 0;
+
+        foreach (var dias in diasPorMes)
+        {
+            sumaDias += dias;
+            if (sumaDias <= numeroDia)
+                contadorMesesCompletos++;
+        }
+
+        for (int i = 0; i < contadorMesesCompletos; i++)
+            diasAcumulados += diasPorMes[i];
+
+        int diasRestantes = numeroDia - diasAcumulados;
+        return $"{diasRestantes}.{contadorMesesCompletos + 1:00}.{year}";
     }
     public static int migratoryBirds(List<int> arr)
     {
