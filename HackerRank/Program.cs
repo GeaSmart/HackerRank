@@ -5,9 +5,46 @@ class Program
 
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hacker Rank");
+        Console.WriteLine("Hacker Rank");        
+    }
 
-        
+    public static void getTotalX(List<int> a, List<int> b)
+    {
+        List<int> response = new();
+        a.Sort();
+        b.Sort();
+        int min = a[0] <= b[0] ? a[0] : b[0];
+        int max = a.Last() >= b.Last() ? a.Last() : b.Last();
+
+        for (int i = min; i <= max; i++)
+        {
+            bool flag = true;
+            foreach (var item in a)
+            {
+                if (i % item == 0)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                    break;
+                }
+            }
+
+            foreach (var item in b)
+            {
+                if (item % i == 0 && flag)
+                {
+                    response.Add(item);
+                }
+            }
+        }
+
+        Console.WriteLine(string.Join(",", a));
+        Console.WriteLine(string.Join(",", b));
+        Console.WriteLine($"min {min}, max {max}");
+        Console.WriteLine(string.Join(",", response));
     }
     public static string kangaroo(int x1, int v1, int x2, int v2)
     {
