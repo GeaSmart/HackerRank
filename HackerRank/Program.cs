@@ -7,7 +7,49 @@ class Program
     {
         Console.WriteLine("Hacker Rank");
 
-        plusMinus([1,2,3]);
+        
+    }
+    public static string kangaroo(int x1, int v1, int x2, int v2)
+    {
+        int contador = 0;
+        int punto1 = 0;
+        int punto2 = 0;
+
+        int xMayor = 0;
+        int vMayor = 0;
+
+        int xMenor = 0;
+        int vMenor = 0;
+
+        if (x2 > x1)
+        {
+            xMayor = x2;
+            vMayor = v2;
+            xMenor = x1;
+            vMenor = v1;
+        }
+        else
+        {
+            xMayor = x1;
+            vMayor = v1;
+            xMenor = x2;
+            vMenor = v2;
+        }
+
+        while (true)
+        {
+            punto1 = xMayor + vMayor * contador;
+            punto2 = xMenor + vMenor * contador;
+
+            if (punto1 == punto2)
+                return "YES";
+
+            if (punto1 > punto2 && vMenor <= vMayor || punto1 < punto2 && vMayor <= vMenor)
+                break;
+
+            contador++;
+        }
+        return "NO";
     }
 
     public static void plusMinus(List<int> arr)
