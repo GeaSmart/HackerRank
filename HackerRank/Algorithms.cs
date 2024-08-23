@@ -2,6 +2,41 @@
 {
     public static class Algorithms
     {
+        public static int countingValleys(int steps, string path)
+        {
+            int counterD = 0;
+            int counterU = 0;
+            int counterValleys = 0;
+            bool valleyBegin = false;
+
+            foreach (var letra in path)
+            {
+                if (letra == 'D')
+                {
+                    if(counterU == 0)                    
+                        valleyBegin = true;                    
+                    counterD++;
+                }
+                else
+                {
+                    counterU++;
+                    if (counterD == 0)                    
+                        valleyBegin = false;                    
+                }
+
+                if (counterD == counterU)
+                {
+                    counterD = 0;
+                    counterU = 0;
+                    if (valleyBegin)
+                    {
+                        counterValleys++;
+                        valleyBegin = false;
+                    }
+                }
+            }
+            return counterValleys;
+        }
         public static string dayOfProgrammer(int year)
         {
             int diasFeb = 28;
