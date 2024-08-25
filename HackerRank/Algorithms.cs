@@ -2,6 +2,14 @@
 {
     public static class Algorithms
     {
+        public static string catAndMouse(int x, int y, int z)
+        {
+            int distanceCatA = Math.Abs(z - x);
+            int distanceCatB = Math.Abs(z - y);
+            if (distanceCatA == distanceCatB)
+                return "Mouse C";
+            return distanceCatA < distanceCatB ? "Cat A" : "Cat B";
+        }
         public static int countingValleys(int steps, string path)
         {
             int counterD = 0;
@@ -13,15 +21,15 @@
             {
                 if (letra == 'D')
                 {
-                    if(counterU == 0)                    
-                        valleyBegin = true;                    
+                    if (counterU == 0)
+                        valleyBegin = true;
                     counterD++;
                 }
                 else
                 {
                     counterU++;
-                    if (counterD == 0)                    
-                        valleyBegin = false;                    
+                    if (counterD == 0)
+                        valleyBegin = false;
                 }
 
                 if (counterD == counterU)

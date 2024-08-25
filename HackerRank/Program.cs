@@ -5,7 +5,8 @@ class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hacker Rank");
-        Console.WriteLine(Algorithms.countingValleys(8,"UDDDUDUU"));
-        Console.WriteLine(Algorithms.countingValleys(8,"DDUUUUDD"));
+        Console.WriteLine(Algorithms.catAndMouse(2, 5, 4));
+        Console.WriteLine(Algorithms.catAndMouse(1, 2, 3));
+        Console.WriteLine(Algorithms.catAndMouse(1, 3, 2));
     }
 }
