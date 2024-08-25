@@ -2,6 +2,28 @@
 {
     public static class Algorithms
     {
+        public static int pickingNumbers(List<int> a)
+        {
+            int counter = 0;
+            int maxLength = 0;
+            HashSet<int> set = new HashSet<int>();
+            a.Sort();
+            a.ForEach(x => set.Add(x));
+
+            foreach (int x in set)
+            {
+                counter = 0;
+                int previous = x - 1;
+                foreach (var item in a)
+                {
+                    if (item == previous || item == x)
+                        counter++;
+                }
+                if (counter > maxLength)
+                    maxLength = counter;
+            }
+            return maxLength;
+        }
         public static string catAndMouse(int x, int y, int z)
         {
             int distanceCatA = Math.Abs(z - x);
