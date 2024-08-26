@@ -2,6 +2,19 @@
 {
     public static class Algorithms
     {
+        public static int hurdleRace(int k, List<int> height)
+        {
+            //Using MaxBy Linq alternative
+            //return height.Select(x => { var max = height.MaxBy(y => y); return max > k ? max - k : 0; }).First();
+
+            int max = 0;
+            foreach (var item in height)
+            {
+                if (item > max)
+                    max = item;
+            }
+            return max > k ? max - k : 0;
+        }
         public static int pickingNumbers(List<int> a)
         {
             int counter = 0;
