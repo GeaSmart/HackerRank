@@ -2,6 +2,19 @@
 {
     public static class Algorithms
     {
+        public static int designerPdfViewer(List<int> h, string word)
+        {
+            int max = 0;
+            int index = 0;
+            char[] chars = word.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                index = (int)chars[i] - 97;
+                if (h[index] > max)
+                    max = h[index];
+            }
+            return chars.Length * max;
+        }
         public static int hurdleRace(int k, List<int> height)
         {
             //Using MaxBy Linq alternative
