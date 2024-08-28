@@ -2,6 +2,18 @@
 {
     public static class Algorithms
     {
+        public static int viralAdvertising(int n)
+        {
+            int shared = 5;
+            int accumulative = 0;
+            for (int i = 1; i <= n; i++)
+            {                
+                int liked = (int)Math.Floor((decimal)shared / 2);
+                accumulative += liked;
+                shared = liked * 3;
+            }
+            return accumulative;
+        }
         public static int beautifulDays(int i, int j, int k)
         {
             int beautifulDays = 0;
