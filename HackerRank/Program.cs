@@ -5,7 +5,7 @@ class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hacker Rank");
-        List<int> heights = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
-        Console.WriteLine(Algorithms.designerPdfViewer(heights,"abc"));
+        Console.WriteLine(Algorithms.beautifulDays(20,23,6));
+        Console.WriteLine(Algorithms.InvertirNumero(2236));
     }
 }

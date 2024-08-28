@@ -2,6 +2,58 @@
 {
     public static class Algorithms
     {
+        public static int beautifulDays(int i, int j, int k)
+        {
+            int beautifulDays = 0;
+            for (int x = i; x <= j; x++)
+            {
+                //Alternative using Chars
+                //string reverse = "";
+                //int reverseNumber = 0;
+                //char[] numbers = x.ToString().ToCharArray();
+                //for (int y = numbers.Length - 1; y >= 0; y--)
+                //{
+                //    reverse += numbers[y];
+                //}
+                //reverseNumber = Convert.ToInt32(reverse);
+
+                int number = x;
+                int reverseNumber = 0;
+
+                while (number != 0)
+                {
+                    int digit = number % 10;
+                    reverseNumber = reverseNumber * 10 + digit;
+                    number /= 10;
+                }
+
+                if (Math.Abs(x - reverseNumber) % k == 0)
+                    beautifulDays++;
+            }
+            return beautifulDays;
+        }
+        public static string angryProfessor(int k, List<int> a)
+        {
+            int counterOnTime = 0;
+            foreach (var item in a)
+            {
+                if (item <= 0)
+                    counterOnTime++;
+            }
+            return counterOnTime >= k ? "NO" : "YES";
+        }
+        public static int utopianTree(int n)
+        {
+            int height = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 2 == 0)
+                    height++;
+                else
+                    height *= 2;
+            }
+            return height;
+        }
         public static int designerPdfViewer(List<int> h, string word)
         {
             int max = 0;
