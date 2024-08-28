@@ -2,12 +2,19 @@
 {
     public static class Algorithms
     {
+        public static int saveThePrisoner(int n, int m, int s)
+        {
+            int resto = m % n;
+            if (resto == 0 && m > 0)
+                return s - 1 == 0 ? n : s - 1;
+            return resto > (n - s) + 1 ? resto - (n - s) - 1 : s + resto - 1;            
+        }
         public static int viralAdvertising(int n)
         {
             int shared = 5;
             int accumulative = 0;
             for (int i = 1; i <= n; i++)
-            {                
+            {
                 int liked = (int)Math.Floor((decimal)shared / 2);
                 accumulative += liked;
                 shared = liked * 3;
