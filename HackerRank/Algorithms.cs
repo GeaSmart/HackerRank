@@ -2,9 +2,33 @@
 {
     public static class Algorithms
     {
+        public static int jumpingOnClouds(int[] c, int k)
+        {
+            int index = 0;
+            int points = 100;
+            bool isExit = false;
+
+            while (true)
+            {
+                index += k;
+                if (index > c.Length - 1)
+                {
+                    index = index % c.Length;
+                    isExit = true;
+                }
+                int value = c[index];
+
+                if (value == 1)
+                    points -= 2;
+
+                points--;
+                if (index == 0 && isExit) break;
+            }
+            return points;
+        }
         public static List<int> permutationEquation(List<int> p)
         {
-            int contador = 1;            
+            int contador = 1;
             List<int> result = new List<int>();
 
             while (contador <= p.Count)
@@ -18,7 +42,7 @@
                     if (z == contador)
                         result.Add(value);
                     index++;
-                } 
+                }
                 contador++;
             }
             return result;
