@@ -2,12 +2,33 @@
 {
     public static class Algorithms
     {
+        public static List<int> permutationEquation(List<int> p)
+        {
+            int contador = 1;            
+            List<int> result = new List<int>();
+
+            while (contador <= p.Count)
+            {
+                int index = 0;
+                foreach (int value in p)
+                {
+                    int x = p[index];
+                    int y = p[x - 1];
+                    int z = p[y - 1];
+                    if (z == contador)
+                        result.Add(value);
+                    index++;
+                } 
+                contador++;
+            }
+            return result;
+        }
         public static int saveThePrisoner(int n, int m, int s)
         {
             int resto = m % n;
             if (resto == 0 && m > 0)
                 return s - 1 == 0 ? n : s - 1;
-            return resto > (n - s) + 1 ? resto - (n - s) - 1 : s + resto - 1;            
+            return resto > (n - s) + 1 ? resto - (n - s) - 1 : s + resto - 1;
         }
         public static int viralAdvertising(int n)
         {
