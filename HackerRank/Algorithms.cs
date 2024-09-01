@@ -2,6 +2,20 @@
 {
     public static class Algorithms
     {
+        public static int findDigits(int n)
+        {
+            var array = n.ToString().ToCharArray();
+            int response = 0;
+
+            foreach (var i in array)
+            {
+                int value = int.Parse(i.ToString());
+                if (value == 0) continue;
+                if (n % value == 0)
+                    response++;
+            }
+            return response;
+        }
         public static int jumpingOnClouds(int[] c, int k)
         {
             int index = 0;
