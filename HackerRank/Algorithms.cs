@@ -2,6 +2,27 @@
 {
     public static class Algorithms
     {
+        public static string appendAndDelete(string s, string t, int k)//not submitted
+        {
+            char[] origin = s.ToCharArray();
+            char[] destination = t.ToCharArray();
+            int counterRight = 0;
+
+            for (int i = 0; i < origin.Length; i++)
+            {
+                if (i > destination.Length - 1)
+                    break;
+
+                if (origin[i].Equals(destination[i]))
+                    counterRight++;
+                else
+                    break;
+            }
+            int charsToDelete = origin.Length == counterRight ? origin.Length + 1 : origin.Length - counterRight;
+            int charsToAdd = origin.Length == counterRight ? destination.Length : destination.Length - counterRight;
+            Console.WriteLine($"delete:{charsToDelete} add:{charsToAdd}");
+            return charsToDelete + charsToAdd == k ? "Yes" : "No";
+        }
         public static int findDigits(int n)
         {
             var array = n.ToString().ToCharArray();
