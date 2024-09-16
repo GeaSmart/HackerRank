@@ -2,6 +2,36 @@
 {
     public static class Algorithms
     {
+        public static List<int> cutTheSticks(List<int> arr)
+        {
+            List<int> response = new() { arr.Count };
+            
+            while (arr.Count > 0)
+            {
+                List<int> temp = new();
+                int lowest = int.MaxValue;
+                //List<int> temp = new();
+                foreach (var item in arr)
+                {
+                    if (item < lowest)
+                        lowest = item;
+                }
+                
+                foreach (var item in arr)
+                {
+                    var value = item - lowest;
+                    if (value > 0)
+                    {
+                        //arr.Remove(item);
+                        temp.Add(item - lowest);
+                    }
+                }
+                arr = temp;
+                if (arr.Count > 0)
+                    response.Add(arr.Count);
+            }
+            return response;
+        }
         public static string appendAndDelete(string s, string t, int k)//not submitted
         {
             char[] origin = s.ToCharArray();
