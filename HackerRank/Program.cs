@@ -6,6 +6,6 @@ class Program
     {
         Console.WriteLine("Hacker Rank");
 
-        Console.WriteLine(string.Join(",", Algorithms.cutTheSticks([5, 4, 4, 2, 2, 8])));
+        Console.WriteLine(Algorithms.repeatedString("a", 1000000000));
     }
 }

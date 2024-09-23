@@ -1,11 +1,39 @@
-﻿namespace HackerRank
+﻿using System.Text;
+
+namespace HackerRank
 {
     public static class Algorithms
     {
+        public static long repeatedString(string s, long n)
+        {
+            long veces = (long)Math.Floor((decimal)n / s.Length);
+            long counterA = 0;
+
+            foreach (char c in s)
+            {
+                if(c == 'a')
+                    counterA++;
+            }
+
+            counterA = counterA * veces;
+
+            long counterAdditionalText = n - s.Length * veces;
+            long counter = 0;
+            foreach(var letra in s)
+            {
+                counter++;
+                if(counter <= counterAdditionalText)
+                {
+                    if (letra == 'a')
+                        counterA++;
+                }
+            }
+            return counterA;
+        }
         public static List<int> cutTheSticks(List<int> arr)
         {
             List<int> response = new() { arr.Count };
-            
+
             while (arr.Count > 0)
             {
                 List<int> temp = new();
@@ -16,7 +44,7 @@
                     if (item < lowest)
                         lowest = item;
                 }
-                
+
                 foreach (var item in arr)
                 {
                     var value = item - lowest;
