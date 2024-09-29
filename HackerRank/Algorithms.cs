@@ -4,6 +4,32 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static int jumpingOnClouds(List<int> c)
+        {
+            int counterJumps = 0;
+            int counterZero = 0;
+
+            for (int i = 0; i < c.Count; i++)
+            {
+                if (c[i] == 1)
+                {
+                    counterJumps++;
+                    counterZero = 0;
+                    continue;
+                }
+                else
+                {
+                    counterZero++;
+                }
+
+                if (counterZero == 2)
+                {
+                    counterJumps++;
+                    counterZero = 0;
+                }
+            }
+            return counterJumps;
+        }
         public static List<int> breakingRecords(List<int> scores)
         {
             int min = int.MaxValue;
