@@ -4,6 +4,28 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static List<int> breakingRecords(List<int> scores)
+        {
+            int min = int.MaxValue;
+            int max = -1;
+            int breakMin = 0;
+            int breakMax = 0;
+
+            foreach (var record in scores)
+            {
+                if (record < min)
+                {
+                    min = record;
+                    breakMin++;
+                }
+                if (record > max)
+                {
+                    max = record;
+                    breakMax++;
+                }
+            }
+            return new List<int> { breakMax - 1, breakMin - 1 };
+        }
         public static long repeatedString(string s, long n)
         {
             long veces = (long)Math.Floor((decimal)n / s.Length);
