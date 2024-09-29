@@ -6,6 +6,6 @@ class Program
     {
         Console.WriteLine("Hacker Rank");
 
-        Console.WriteLine(Algorithms.repeatedString("a", 1000000000));
+        Console.WriteLine(Algorithms.equalizeArray([3, 3, 2, 1, 3]));
     }
 }

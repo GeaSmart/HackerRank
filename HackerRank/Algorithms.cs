@@ -4,6 +4,32 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static int equalizeArray(List<int> arr)
+        {
+            HashSet<int> result = new HashSet<int>();
+            foreach (var item in arr)
+                result.Add(item);
+
+            int maxRepetition = 0;
+            int counter = 0;
+
+            foreach (var unique in result)
+            {
+                counter = 0;
+                foreach (var item in arr)
+                {
+                    if (item == unique)
+                    {
+                        counter++;
+                    }
+                }
+                if (counter > maxRepetition)
+                {
+                    maxRepetition = counter;
+                }
+            }
+            return arr.Count - maxRepetition;
+        }
         public static int jumpingOnClouds(List<int> c)
         {
             int counterJumps = 0;
@@ -59,7 +85,7 @@ namespace HackerRank
 
             foreach (char c in s)
             {
-                if(c == 'a')
+                if (c == 'a')
                     counterA++;
             }
 
@@ -67,10 +93,10 @@ namespace HackerRank
 
             long counterAdditionalText = n - s.Length * veces;
             long counter = 0;
-            foreach(var letra in s)
+            foreach (var letra in s)
             {
                 counter++;
-                if(counter <= counterAdditionalText)
+                if (counter <= counterAdditionalText)
                 {
                     if (letra == 'a')
                         counterA++;
