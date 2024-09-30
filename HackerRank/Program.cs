@@ -6,6 +6,8 @@ class Program
     {
         Console.WriteLine("Hacker Rank");
 
-        Console.WriteLine(Algorithms.equalizeArray([3, 3, 2, 1, 3]));
+        var lista = Algorithms.acmTeam(["10101","11110","00010"]);
+
+        Console.WriteLine(string.Join(",", lista));
     }
 }

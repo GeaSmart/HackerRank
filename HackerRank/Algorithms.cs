@@ -4,6 +4,35 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static List<int> acmTeam(List<string> topic)
+        {
+            var listResults = new List<int>();
+            int sum = 0;
+            int maxValue = 0;
+            int maxCount = 0;
+
+            for (int i = 0; i < topic.Count; i++)
+            {
+                for (int j = i + 1; j < topic.Count; j++)
+                {
+                    sum = 0;
+                    for (int k = 0; k < topic[i].Length; k++)
+                    {
+                        sum += Convert.ToInt16(topic[i][k].ToString()) | Convert.ToInt16(topic[j][k].ToString());
+                    }
+                    if (sum > maxValue)
+                    {
+                        maxValue = sum;
+                        maxCount = 1;
+                    }
+                    else if (sum == maxValue)
+                    {
+                        maxCount++;
+                    }
+                }
+            }
+            return new List<int> { maxValue, maxCount };
+        }
         public static int equalizeArray(List<int> arr)
         {
             HashSet<int> result = new HashSet<int>();
