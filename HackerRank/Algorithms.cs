@@ -4,6 +4,13 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static long taumBday(int b, int w, int bc, int wc, int z)
+        {
+            long normalCost = (long)b * bc + (long)w * wc;
+            long alternativeCost1 = (long)b * bc + (long)w * (bc + z);
+            long alternativeCost2 = (long)w * wc + (long)b * (wc + z);
+            return Math.Min(normalCost, Math.Min(alternativeCost1, alternativeCost2));
+        }
         public static List<int> acmTeam(List<string> topic)
         {
             var listResults = new List<int>();
