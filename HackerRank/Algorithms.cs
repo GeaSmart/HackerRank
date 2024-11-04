@@ -4,6 +4,31 @@ namespace HackerRank
 {
     public static class Algorithms
     {
+        public static void kaprekarNumbers(int p, int q)
+        {
+            List<int> numbers = new List<int>();
+            for (int i = p; i <= q; i++)
+            {
+                var digits = i.ToString().ToCharArray().Count();
+                var square = Math.Pow(i, 2);
+                var square_digits = square.ToString().ToCharArray().Count();
+                int left = 0;
+                int right = 0;
+                if (square_digits > 1)
+                {
+                    int digitsForLeft = square_digits - digits;
+                    left = Convert.ToInt32(square.ToString().Substring(0, digitsForLeft));
+                    right = Convert.ToInt32(square.ToString().Substring(digitsForLeft));
+                }
+                else
+                {
+                    right = (int)square;
+                }
+                if (left + right == i)
+                    numbers.Add(i);
+            }
+            Console.WriteLine(numbers.Count > 0 ? string.Join(" ", numbers) : "INVALID RANGE");
+        }
         public static long taumBday(int b, int w, int bc, int wc, int z)
         {
             long normalCost = (long)b * bc + (long)w * wc;
